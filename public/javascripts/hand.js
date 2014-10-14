@@ -8,10 +8,10 @@ define([], function(){
 					if(sum + 11 === 21){
 						sum += 11;
 					}
-					else if (sum +1 <= 21) {
-						sum += 1;
-					} else {
+					else if (sum +11 <= 21) {
 						sum += 11;
+					} else {
+						sum += 1;
 					}
 				}
 				return sum;
@@ -20,14 +20,6 @@ define([], function(){
 			return {
 				pickUp: function(card) {
 					cards.push(card);
-				},
-				has: function(card) {
-					for(var i=0; i<cards.length; i++){
-						if(cards[i] === card){
-							return true;
-						}
-					}
-					return false;
 				},
 				sum: function(){
 					var sum = 0;

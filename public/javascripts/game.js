@@ -31,10 +31,10 @@ define([], function(){
 				}
 			};
 
-			return {
+			return {/*
 				wins: function(hand){
 					return winningHand(hand);
-				},
+				},*/
 				winningHand: function(hand1, hand2){
 					var hand1Wins = winningHand(hand1);
 					var hand2Wins = winningHand(hand2);

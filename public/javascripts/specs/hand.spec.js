@@ -14,14 +14,6 @@ define(['test-util/expect', 'hand'], function(expect, hand) {
 	  		handInstance.pickUp('3h');
 	  	});
 
-	  	it('adding card gets card on hand', function(){
-	  		expect(handInstance.has('3h')).to.be.true;
-	  	});
-
-	  	it('card not added to hand not on hand', function(){
-	  		expect(handInstance.has('1s')).to.be.false;
-	  	});
-
 	    it('', function() {
 		    expect(handInstance.sum()).to.equal(3);
 	    });
@@ -46,10 +38,9 @@ define(['test-util/expect', 'hand'], function(expect, hand) {
 		    expect(handInstance.sum()).to.equal(13);
 	    });
 
-	    /* is this supposed to be 4 or 14? */
-	    it('and ace on hand equals 4', function() {
+	    it('and ace on hand equals 14', function() {
 	    	handInstance.pickUp('ah');
-		    expect(handInstance.sum()).to.equal(4);
+		    expect(handInstance.sum()).to.equal(14);
 	    });
 
 	    it('and 10 on hand equal 13', function(){

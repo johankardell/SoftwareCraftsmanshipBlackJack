@@ -21,28 +21,9 @@ define(['test-util/expect', 'game'], function(expect, game) {
   		expect(gameInstance).to.not.be.undefined;
   	});
 
-  	it('hand wins if sum is 21', function(){
-  		mockedHandValue = 21;
-  		var wins = gameInstance.wins(hand);
-  		expect(wins).to.be.true;
-  	});
-
-  	it('hand wins if sum is 21', function(){
-  		mockedHandValue = 20;
-  		var wins = gameInstance.wins(hand);
-  		expect(wins).to.be.false;
-  	});
-
-  	it('has 6 cards on hand and should lose the game even though value is 21', function(){
-  		mockedNumberOfCards = 6;
-  		mockedHandValue = 21;
-  		var wins = gameInstance.wins(hand);
-  		expect(wins).to.be.false;
-  	});
-
     describe('two hands are played against each other', function(){
-      var mockedHand1Value;
-      var mockedHand2Value;
+      var mockedHand1Value = 0;
+      var mockedHand2Value = 0;
       var mockedHand1NumberOfCards = 1;
       var mockedHand2NumberOfCards = 1;
 
