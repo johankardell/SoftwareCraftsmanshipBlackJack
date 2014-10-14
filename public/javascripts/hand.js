@@ -17,36 +17,50 @@ define([], function(){
 				return sum;
 			};
 
+			var createCardObject = function(card){
+				var cardValue, cardColor;
+
+				if(card.length === 3){
+					cardValue = card.substr(0,2);
+					cardColor = card.substr(2,1);
+				} else {
+					cardValue = card.substr(0,1);
+					cardColor = card.substr(1,1);
+				}
+
+				return {
+					value: cardValue,
+					color: cardColor
+				};
+			};
+
+			var calculateSum = function(){
+				var sum = 0;
+				var aces = 0;
+
+				for(var i=0; i<cards.length; i++){
+					var card = cards[i];
+
+					if(card.value === 'a') {
+						aces += 1;
+					}
+					else if(card.value === 'k' || card.value === 'q' ||	card.value === 'j') {
+						sum += 10;
+					} else {
+						sum += parseInt(card.value);
+					}
+				}
+
+				sum = addValueFromAces(aces, sum);
+				return sum;
+			};
+
 			return {
 				pickUp: function(card) {
-					cards.push(card);
+					cards.push(createCardObject(card));
 				},
 				sum: function(){
-					var sum = 0;
-					var aces = 0;
-
-					for(var i=0; i<cards.length; i++){
-						var cardValue;
-						if(cards[i].length === 3){
-							cardValue = cards[i].substr(0,2);
-						} else {
-							cardValue = cards[i].substr(0,1);
-						}
-
-						if(cardValue === 'a') {
-							aces += 1;
-						}
-						else if(cardValue === 'k' ||
-							cardValue === 'q' ||
-							cardValue === 'j') {
-							sum += 10;
-						} else {
-							sum += parseInt(cardValue);
-						}
-					}
-
-					sum = addValueFromAces(aces, sum);
-					return sum;
+					return calculateSum();
 				},
 				numberOfCards: function(){
 					return cards.length;
