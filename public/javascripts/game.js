@@ -7,17 +7,8 @@ define([], function(){
 				}
 				return false;
 			};
-
 			var winningHand = function(hand){
-				if(tooManyCards(hand)){
-					return false;
-				}
-
-				if(hand.sum() == 21){
-					return true;
-				}
-
-				return false;
+				return !tooManyCards(hand) && hand.sum() == 21;
 			};
 
 			var calculateClosestTo21 = function(hand1, hand2){
@@ -31,10 +22,7 @@ define([], function(){
 				}
 			};
 
-			return {/*
-				wins: function(hand){
-					return winningHand(hand);
-				},*/
+			return {
 				winningHand: function(hand1, hand2){
 					var hand1Wins = winningHand(hand1);
 					var hand2Wins = winningHand(hand2);
